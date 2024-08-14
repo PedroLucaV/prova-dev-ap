@@ -1,6 +1,7 @@
 import conn from "../config/dbconfig.js";
 import bcrypt from 'bcrypt';
 import createUserToken from "../helpers/createUserJWT.js";
+import getUserByToken from '../helpers/getUserByToken.js'
 
 import { v4 as uuidv4 } from 'uuid';
 

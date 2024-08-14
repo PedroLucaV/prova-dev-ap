@@ -1,5 +1,7 @@
 import conn from "../config/dbconfig.js";
 import { v4 as uuidv4 } from 'uuid';
+import getToken from "../helpers/getToken.js";
+import getUserByToken from '../helpers/getUserByToken.js'
 
 export const criarEvento = (req, res) => {
     const {titulo, data_evento, palestrantes} = req.body;
@@ -76,9 +78,14 @@ export const agendaEventos = () => {
     `
 }
 
-const inscrever = (req, res) => {
+export const inscrever = async (req, res) => {
+    const {id} = req.params;
     try{
         const token = getToken(req);
         const user = await getUserByToken(token);
+        
+    }
+    catch{
+        
     }
 }

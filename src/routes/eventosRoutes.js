@@ -2,14 +2,14 @@ import { Router } from "express";
 
 const router = Router();
 
-import { criarEvento, agendaEventos } from "../controllers/eventosController.js";
+import { criarEvento, agendaEventos, inscrever } from "../controllers/eventosController.js";
 import palestrantesRotas from './palestranteRoutes.js'
 import participantesRotas from './participantesRoutes.js'
 
 router.use('/palestrantes', palestrantesRotas);
-router.use('/criar', criarEvento);
-router.use('/agenda', agendaEventos);
-router.use('/participantes', participantesRotas)
-router.use('/inscrever', inscrever)
+router.post('/criar', criarEvento);
+router.get('/agenda', agendaEventos);
+router.post('/participantes', participantesRotas)
+router.post('/inscrever/:id', inscrever)
 
 export default router;
