@@ -1,10 +1,11 @@
 import conn from "../config/dbconfig.js";
 
-const palestranteModel = `
+const palestranteModel = /*sql*/ `
     CREATE TABLE IF NOT EXISTS palestrante(
-    id INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
-    nome VARCHAR(255) NOT NULL,
-    expertise VARCHAR(60) NOT NULL)
+        id VARCHAR(60) PRIMARY KEY NOT NULL,
+        nome VARCHAR(255) NOT NULL,
+        expertise VARCHAR(60) NOT NULL
+    )
 `
 
 conn.query(palestranteModel, (err, table) => {
