@@ -9,8 +9,12 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 import palestranteModel from './model/palestrante.js';
+import eventosModel from './model/eventos.js';
+import inscricao from './model/inscricao.js';
+import palestranteEvento from './model/idPalestrantes.js';
+import participantesModel from './model/participantes.js';
 
-import rotas from './routes/mainRoute.js';
+import rotas from './routes/eventosRoutes.js';
 
 app.use(('/eventos'), rotas);
 
