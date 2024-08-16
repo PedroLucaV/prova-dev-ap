@@ -13,13 +13,14 @@ import eventosModel from './model/eventos.js';
 import inscricao from './model/inscricao.js';
 import palestranteEvento from './model/idPalestrantes.js';
 import participantesModel from './model/participantes.js';
+import feedback from './model/feedback.js';
 
 import rotas from './routes/eventosRoutes.js';
 
 app.use(('/eventos'), rotas);
 
 app.use('*', (req,res) => {
-    res.send("505")
+    res.send("404")
 })
 
 app.listen(8080, () => {

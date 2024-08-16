@@ -7,6 +7,7 @@ const conn = mysql.createPool({
     password: "Sen@iDev77!.",
     database:"eventos",
     port:3306,
+    multipleStatements: true
 });
 
 conn.query('SELECT 1 + 1 AS solution', (err, result, fields) => {

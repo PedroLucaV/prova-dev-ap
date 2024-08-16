@@ -1,7 +1,4 @@
 import conn from "../config/dbconfig.js";
-import bcrypt from 'bcrypt';
-import createUserToken from "../helpers/createUserJWT.js";
-import getUserByToken from '../helpers/getUserByToken.js'
 
 import { v4 as uuidv4 } from 'uuid';
 
@@ -9,11 +6,11 @@ export const registrarPalestrante = (req, res) => {
     const {nome, expertise} = req.body;
 
     if(!nome){
-        res.status(400).json("O campo de nome não pode ser vazio")
+        return res.status(400).json("O campo de nome não pode ser vazio")
     }
 
     if(!expertise){
-        res.status(400).json("O campo de expertise não pode ser vazio")
+        return res.status(400).json("O campo de expertise não pode ser vazio")
     }
 
     const checkSql = /*sql*/ `
