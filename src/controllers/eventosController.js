@@ -61,7 +61,29 @@ export const criarEvento = (req, res) => {
 }
 
 export const agendaEventos = (req, res) => {
-    
+    const eventos = [];
+    const selectSQL = /*sql*/ `
+        SELECT * FROM eventos
+    ` 
+    conn.query(selectSQL, (err, data) => {
+        data.forEach(evento => {
+            let current;
+            current = evento;
+            evento.palestrante = [];
+
+            const selectSQL = /*sql*/ `SELECT id_palestrante from palestranteevento where ?? = ?`
+            const dataM = ['id_evento', evento.id_evento]
+            conn.query(selectSQL, dataM, (err, data) => {
+                data.forEach(palestrante => {
+                    const selectSQL = /*sql*/ `SELECT nome, expertise from palestrantes where ?? = ?`
+                    const dataM = ['id_palestrante', palestrante.id_palestrante]
+                    conn.query(selectSQL, dataM, (err, data) => {
+                        evento.palestrante.push(data[0])
+                    })
+                })
+            })
+        })
+    })
 }
 
 export const inscrever = (req, res) => {
